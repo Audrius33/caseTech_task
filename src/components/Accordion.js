@@ -1,76 +1,18 @@
-import React, { useState } from "react";
-import { Data } from "./LIST_ITEMS";
-import styled from "styled-components";
-
-const AccordionSection = styled.div`
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	width: 1400px;
-	position: relative;
-	height: 722px;
-`;
-
-const Container = styled.div`
-	position: absolute;
-	width: 1360px;
-	display: flex;
-	flex-direction: column;
-`;
-
-const Wrap = styled.div`
-	    
-	display: flex;
-	justify-contenct: space-between;
-	align-items: center;
-    text-align: center;
-	cursor: pointer;
-    width 1360px;
-    height: 85.72px;
-    margin: 20px;
-    position: relative;
-    box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
-    
-
-    span {
-        position: absolute;
-        width: 200px;
-        text-decoration: underline;
-        border-bottom: 2px solid #00ADAA;
-        bottom: 0%;
-        }
-  
-	h1 {
-        color: #0E2A35;
-		padding: 2rem;
-		font-size: 2rem;
-        position relative;
- 	}
-`;
-
-const Dropdown = styled.div`
-
-    display: flex;
-    padding 0 0 0 40px;
-    
-     ul {
-         display: flex;
-         flex-direction: column;
-                
-         li {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-           
-         }
-    }
-	
-`;
+import useLocalStorage from "../hooks/useLocalStorage";
+import { Data } from "./CHECK_LIST_ITEMS";
+import {
+	AccordionSection,
+	Container,
+	Wrap,
+	Dropdown,
+	Ul,
+} from "./Accordion.styled";
+import img from "../assets/svg/Ellipse.svg";
+import img2 from "../assets/svg/Path.svg";
 
 const Accordion = () => {
-	const [clicked, setClicked] = useState(false);
-	const [expanded, setExpanded] = useState("100px");
+	const [clicked, setClicked] = useLocalStorage("clicked", false);
+	const [checked, setChecked] = useLocalStorage("checked", []);
 
 	const toggle = (index) => {
 		if (clicked === index) {
@@ -79,23 +21,55 @@ const Accordion = () => {
 		setClicked(index);
 	};
 
+	const handleCheckboxToggle = (index, isChecked) => {
+		if (isChecked) {
+			return setChecked((prevState) =>
+				prevState.filter((itemIndex) => itemIndex !== index)
+			);
+		}
+
+		return setChecked((prevState) => [...prevState, index]);
+	};
+
 	return (
 		<AccordionSection>
 			<Container>
 				{Data.map((item, index) => {
+					const key = `${item}-${index}`;
 					return (
 						<>
-							<Wrap key={item} onClick={() => toggle(index)}>
-								<h1>{item.title}</h1>
+							<Wrap key={key} onClick={() => toggle(index)}>
+								<p>{item.number}</p>
+								<h5>{item.title}</h5>
 								<span></span>
 							</Wrap>
 							{clicked === index ? (
 								<Dropdown>
-									<ul>
-										{item.contents.map((text) => {
-											return <li key={text}>{text}</li>;
+									<Ul>
+										{item.contents.map((item, index) => {
+											const key = `${item}-${index}`;
+											const isChecked = checked.includes(index);
+											return isChecked ? (
+												<li
+													key={key}
+													checked={isChecked}
+													onClick={() => handleCheckboxToggle(index, isChecked)}
+												>
+													<img src={img2} alt="" />
+													<span>{item.title}</span>
+												</li>
+											) : (
+												<li
+													key={key}
+													checked={isChecked}
+													onClick={() => handleCheckboxToggle(index, isChecked)}
+												>
+													<img src={img} alt="" />
+													<span>{item.title}</span>
+												</li>
+											);
 										})}
-									</ul>
+									</Ul>
 								</Dropdown>
 							) : null}
 						</>

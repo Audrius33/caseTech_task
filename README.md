@@ -18,6 +18,6 @@ React functional Accordion with the content and checkboxes wrapped in Accordion 
 2. `cd my-app`
 3. `npm start`
 
-## to be updated
+## To be updated
 
 

@@ -7,8 +7,8 @@ import {
 	Dropdown,
 	Ul,
 } from "./Accordion.styled";
-import img from "../assets/svg/Ellipse.svg";
-import img2 from "../assets/svg/Path.svg";
+import Path from "../assets/svg/Path.svg";
+import Radio from "../assets/svg/Radio.svg";
 
 const Accordion = () => {
 	const [clicked, setClicked] = useLocalStorage("clicked", false);
@@ -55,7 +55,7 @@ const Accordion = () => {
 													checked={isChecked}
 													onClick={() => handleCheckboxToggle(index, isChecked)}
 												>
-													<img src={img2} alt="" />
+													<img src={Path} alt="" />
 													<span>{item.title}</span>
 												</li>
 											) : (
@@ -64,7 +64,7 @@ const Accordion = () => {
 													checked={isChecked}
 													onClick={() => handleCheckboxToggle(index, isChecked)}
 												>
-													<img src={img} alt="" />
+													<img src={Radio} alt="" />
 													<span>{item.title}</span>
 												</li>
 											);

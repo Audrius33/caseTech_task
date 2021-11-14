@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import img2 from "../assets/svg/Path.svg";
 
 export const AccordionSection = styled.div`
 	display: flex;
@@ -81,10 +80,9 @@ export const Dropdown = styled.div`
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-
+                   
             img {
-                margin: 0 20px 0 0;
-                backgroundImage: "url(${img2})"
+                margin: -10px 20px -5px 0;
             }
         }
     }

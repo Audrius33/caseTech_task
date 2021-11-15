@@ -1,4 +1,4 @@
-##Frontend Accordion Component with checkboxes
+# Frontend Accordion Component with checkboxes
 
 React functional Accordion with the content and checkboxes wrapped in Accordion element, mapped from the array and produced items in the Accordion component. The state of the accordion list is saved to localstorage using useState Hooks. No configuration is needed. The size of the script is 422Kb.
 

@@ -51,3 +51,98 @@
 // 	select[index] = false;
 // 	setSelectedPlan(select);
 // }
+
+import { useState } from "react";
+import "./App.css";
+
+const DATA = [
+	{
+		name: "one",
+		items: [
+			{
+				name: "text 1",
+			},
+			{
+				name: "text 2",
+			},
+			{
+				name: "text 3",
+			},
+		],
+	},
+	{
+		name: "two",
+		items: [
+			{
+				name: "text 6",
+			},
+			{
+				name: "text 7",
+			},
+			{
+				name: "text 8",
+			},
+		],
+	},
+	{
+		name: "three",
+		items: [],
+	},
+];
+
+function App() {
+	const [show, setShow] = useState(null);
+	const [selected, setSelected] = useState([]);
+
+	const handleToggleShow = (index) => {
+		if (index === show) {
+			return setShow(null);
+		}
+
+		setShow(index);
+	};
+
+	const handleCheckboxToggle = (index, isChecked) => {
+		if (isChecked) {
+			return setSelected(selected.filter((itemIndex) => itemIndex !== index));
+		}
+
+		return setSelected([...selected, index]);
+	};
+
+	return (
+		<div style={{ display: "flex", flexDirection: "column" }}>
+			{DATA.map(({ name, id, items }, index) => {
+				const number = index + 1;
+				return (
+					<>
+						<button onClick={() => handleToggleShow(number)}>
+							{number}. {name}
+						</button>
+						{number === show && (
+							<ul>
+								{items.map(({ name }, index) => {
+									const matrix = `${number}-${index}`;
+									const isChecked = selected.includes(matrix);
+
+									return (
+										<li style={{ display: "flex" }} key={index}>
+											<input
+												type="checkbox"
+												checked={isChecked}
+												onClick={() => handleCheckboxToggle(matrix, isChecked)}
+											/>
+											<p>{name}</p>
+										</li>
+									);
+								})}
+							</ul>
+						)}
+					</>
+				);
+			})}
+		</div>
+	);
+}
+
+export default App;

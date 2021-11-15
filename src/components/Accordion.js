@@ -1,5 +1,5 @@
 import useLocalStorage from "../hooks/useLocalStorage";
-import { Data } from "./CHECK_LIST_ITEMS";
+import { data } from "./CHECK_LIST_ITEMS";
 import {
 	AccordionSection,
 	Container,
@@ -31,13 +31,12 @@ const Accordion = () => {
 	return (
 		<AccordionSection>
 			<Container>
-				{Data.map((item, index) => {
-					const key = `${item}-${index}`;
+				{data.map((item, index) => {
 					const number = index + 1;
 					return (
 						<>
-							<Wrap key={key} onClick={() => toggle(number)}>
-								<p>{item.number}</p>
+							<Wrap item={item} key={index} onClick={() => toggle(number)}>
+								<p>{item.title_number}</p>
 								<h5>{item.title}</h5>
 								<span></span>
 							</Wrap>
@@ -49,7 +48,7 @@ const Accordion = () => {
 											const isChecked = checked.includes(matrix);
 											return isChecked ? (
 												<li
-													key={key}
+													key={index}
 													checked={isChecked}
 													onClick={() =>
 														handleCheckboxToggle(matrix, isChecked)
@@ -60,7 +59,7 @@ const Accordion = () => {
 												</li>
 											) : (
 												<li
-													key={key}
+													key={index}
 													checked={isChecked}
 													onClick={() =>
 														handleCheckboxToggle(matrix, isChecked)

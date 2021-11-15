@@ -11,14 +11,11 @@ import Path from "../assets/svg/Path.svg";
 import Radio from "../assets/svg/Radio.svg";
 
 const Accordion = () => {
-	const [clicked, setClicked] = useLocalStorage("clicked", false);
+	const [clicked, setClicked] = useLocalStorage("clicked", null);
 	const [checked, setChecked] = useLocalStorage("checked", []);
 
 	const toggle = (index) => {
-		if (clicked === index) {
-			return setClicked(null);
-		}
-		setClicked(index);
+		clicked === index ? setClicked(null) : setClicked(index);
 	};
 
 	const handleCheckboxToggle = (index, isChecked) => {
@@ -36,24 +33,27 @@ const Accordion = () => {
 			<Container>
 				{Data.map((item, index) => {
 					const key = `${item}-${index}`;
+					const number = index + 1;
 					return (
 						<>
-							<Wrap key={key} onClick={() => toggle(index)}>
+							<Wrap key={key} onClick={() => toggle(number)}>
 								<p>{item.number}</p>
 								<h5>{item.title}</h5>
 								<span></span>
 							</Wrap>
-							{clicked === index ? (
+							{clicked === number ? (
 								<Dropdown>
 									<Ul>
 										{item.contents.map((item, index) => {
-											const key = `${item}-${index}`;
-											const isChecked = checked.includes(index);
+											const matrix = `${number}-${index}`;
+											const isChecked = checked.includes(matrix);
 											return isChecked ? (
 												<li
 													key={key}
 													checked={isChecked}
-													onClick={() => handleCheckboxToggle(index, isChecked)}
+													onClick={() =>
+														handleCheckboxToggle(matrix, isChecked)
+													}
 												>
 													<img src={Path} alt="" />
 													<span>{item.title}</span>
@@ -62,7 +62,9 @@ const Accordion = () => {
 												<li
 													key={key}
 													checked={isChecked}
-													onClick={() => handleCheckboxToggle(index, isChecked)}
+													onClick={() =>
+														handleCheckboxToggle(matrix, isChecked)
+													}
 												>
 													<img src={Radio} alt="" />
 													<span>{item.title}</span>

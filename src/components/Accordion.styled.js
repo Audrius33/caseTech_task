@@ -65,17 +65,17 @@ export const Wrap = styled.div`
 export const Dropdown = styled.div`
     display: flex;
     padding 0 0 0 20px;
-            
+                
      ul {
         list-style-type: none;
                                   
             li {
-                list-style-type: none;
+            list-style-type: none;
             font-family: Roboto; 
             font-style: normal;
             font-weight: 400;
             font-size: 18px;
-            margin: 20px 0;
+            margin: 5px 0;
             color: #0E2A35  
             display: flex;
             flex-direction: column;

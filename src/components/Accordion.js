@@ -31,6 +31,7 @@ const Accordion = () => {
 	return (
 		<AccordionSection>
 			<Container>
+				<h1>CCT Lab Process</h1>
 				{data.map((item, index) => {
 					const number = index + 1;
 					return (

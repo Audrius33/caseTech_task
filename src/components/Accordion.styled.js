@@ -2,19 +2,24 @@ import styled from "styled-components";
 
 export const AccordionSection = styled.div`
 	display: flex;
-	justify-content: center;
-	flex-direction: column;
+	flex-wrap: wrap;
 	align-items: center;
-	width: 1400px;
-	position: relative;
-	height: 722px;
+	flex-direction: column;
 `;
 
 export const Container = styled.div`
-	position: absolute;
-	width: 1360px;
+	width: 1400px;
 	display: flex;
 	flex-direction: column;
+
+	h1 {
+		font-family: Manrope;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 64px;
+		line-height: 87px;
+		margin: 0 0 0 5px;
+	}
 `;
 
 export const Wrap = styled.div`
@@ -25,7 +30,7 @@ export const Wrap = styled.div`
 	cursor: pointer;
     width 1360px;
     height: 85.72px;
-    margin: 20px;
+    margin: 10px;
     position: relative;
     box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
     

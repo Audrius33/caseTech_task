@@ -46,11 +46,10 @@ export const Title = styled.div`
         font-family: Manrope; 
         font-style: normal;
         font-weight: bold;
-        position: absolute;
-        left: 110px;
         color: #0E2A35;
         line-height: 24.59px;
         font-size: 18px;
+        margin: 0 0 0 10px
      	}
          
     p {
@@ -60,8 +59,7 @@ export const Title = styled.div`
        line-height: 49px;
        font-size: 36px; 
        width: 50px;
-       position absolute;
-       left: 30px; 
+       margin: 0 0 0 30px; 
        background: linear-gradient(180deg, #00A9A7 0%, #00BA89 100%);
        color: #FFFFFF
     } 

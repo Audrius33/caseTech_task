@@ -8,10 +8,6 @@ export const AccordionSection = styled.div`
 `;
 
 export const Container = styled.div`
-	width: 1400px;
-	display: flex;
-	flex-direction: column;
-
 	h1 {
 		font-family: Manrope;
 		font-style: normal;
@@ -24,45 +20,45 @@ export const Container = styled.div`
 
 export const Title = styled.div`
 	display: flex;
-	justify-contenct: space-between;
 	align-items: center;
-    text-align: center;
+	text-align: center;
 	cursor: pointer;
-    width 1360px;
-    height: 85.72px;
-    margin: 10px;
-    position: relative;
-    box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
-    
-    span {
-        position: absolute;
-        width: 200px;
-        text-decoration: underline;
-        border-bottom: 2px solid #00ADAA;
-        bottom: 0%;
-        }
-  
+	width: 1360px;
+	height: 85.72px;
+	margin: 10px;
+	position: relative;
+	box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
+
+	span {
+		position: absolute;
+		width: 200px;
+		text-decoration: underline;
+		border-bottom: 2px solid #00adaa;
+		bottom: 0%;
+	}
+
 	h5 {
-        font-family: Manrope; 
-        font-style: normal;
-        font-weight: bold;
-        color: #0E2A35;
-        line-height: 24.59px;
-        font-size: 18px;
-        margin: 0 0 0 10px
-     	}
-         
-    p {
-       font-family: Manrope; 
-       font-style: normal;
-       font-weight: bold;
-       line-height: 49px;
-       font-size: 36px; 
-       width: 50px;
-       margin: 0 0 0 30px; 
-       background: linear-gradient(180deg, #00A9A7 0%, #00BA89 100%);
-       color: #FFFFFF
-    } 
+		font-family: Manrope;
+		font-style: normal;
+		font-weight: bold;
+		color: #0e2a35;
+		line-height: 25px;
+		font-size: 18px;
+		margin: 0 0 0 10px;
+	}
+
+	p {
+		font-family: Manrope;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 36px;
+		height: 53.58px;
+		width: 50px;
+		line-height: 49.18px;
+		margin: 0 0 0 30px;
+		background: linear-gradient(180deg, #00a9a7 0%, #00ba89 100%);
+		color: #ffffff;
+	}
 `;
 
 export const List = styled.ul`

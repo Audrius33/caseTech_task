@@ -18,6 +18,8 @@ React functional Accordion with the content and checkboxes wrapped in Accordion 
 2. `cd my-app`
 3. `npm start`
 
-## To be updated
+## Live demo
+
+(https://accordion-react33.herokuapp.com/)
 
 

@@ -22,7 +22,7 @@ export const Container = styled.div`
 	}
 `;
 
-export const Wrap = styled.div`
+export const Title = styled.div`
 	display: flex;
 	justify-contenct: space-between;
 	align-items: center;
@@ -47,12 +47,12 @@ export const Wrap = styled.div`
         font-style: normal;
         font-weight: bold;
         position: absolute;
-        left: 116px;
+        left: 110px;
         color: #0E2A35;
         line-height: 24.59px;
         font-size: 18px;
-        
- 	}
+     	}
+         
     p {
        font-family: Manrope; 
        font-style: normal;
@@ -67,33 +67,22 @@ export const Wrap = styled.div`
     } 
 `;
 
-export const Dropdown = styled.div`
-    display: flex;
-    padding 0 0 0 20px;
-                
-     ul {
-        list-style-type: none;
-                                  
-            li {
-            list-style-type: none;
-            font-family: Roboto; 
-            font-style: normal;
-            font-weight: 400;
-            font-size: 18px;
-            margin: 5px 0;
-            color: #0E2A35  
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-                   
-            img {
-                margin: -10px 20px -5px 0;
-            }
-        }
-    }
+export const List = styled.ul`
+	list-style-type: none;
 `;
 
-export const Ul = styled.ul`
-	overflow: hidden;
-	transition: max-height 0.5s ease;
+export const ListItem = styled.li`
+    font-family: Roboto; 
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    margin: 5px 0;
+    color: #0E2A35  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+           
+    img {
+        margin: 0 20px -5px 15px;
+    }
 `;

@@ -3,9 +3,9 @@ import { data } from "./CHECK_LIST_ITEMS";
 import {
 	AccordionSection,
 	Container,
-	Wrap,
-	Dropdown,
-	Ul,
+	Title,
+	List,
+	ListItem,
 } from "./Accordion.styled";
 import Path from "../assets/svg/Path.svg";
 import Radio from "../assets/svg/Radio.svg";
@@ -36,43 +36,37 @@ const Accordion = () => {
 					const number = index + 1;
 					return (
 						<>
-							<Wrap item={item} key={index} onClick={() => toggle(number)}>
+							<Title key={index} onClick={() => toggle(number)}>
 								<p>{item.title_number}</p>
 								<h5>{item.title}</h5>
 								<span></span>
-							</Wrap>
+							</Title>
 							{clicked === number ? (
-								<Dropdown>
-									<Ul>
-										{item.contents.map((item, index) => {
-											const matrix = `${number}-${index}`;
-											const isChecked = checked.includes(matrix);
-											return isChecked ? (
-												<li
-													key={index}
-													checked={isChecked}
-													onClick={() =>
-														handleCheckboxToggle(matrix, isChecked)
-													}
-												>
-													<img src={Path} alt="" />
-													<span>{item.title}</span>
-												</li>
-											) : (
-												<li
-													key={index}
-													checked={isChecked}
-													onClick={() =>
-														handleCheckboxToggle(matrix, isChecked)
-													}
-												>
-													<img src={Radio} alt="" />
-													<span>{item.title}</span>
-												</li>
-											);
-										})}
-									</Ul>
-								</Dropdown>
+								<List>
+									{item.contents.map((item, index) => {
+										const matrix = `${number}-${index}`;
+										const isChecked = checked.includes(matrix);
+										return isChecked ? (
+											<ListItem
+												key={index}
+												checked={isChecked}
+												onClick={() => handleCheckboxToggle(matrix, isChecked)}
+											>
+												<img src={Path} alt="" />
+												<span>{item.title}</span>
+											</ListItem>
+										) : (
+											<ListItem
+												key={index}
+												checked={isChecked}
+												onClick={() => handleCheckboxToggle(matrix, isChecked)}
+											>
+												<img src={Radio} alt="" />
+												<span>{item.title}</span>
+											</ListItem>
+										);
+									})}
+								</List>
 							) : null}
 						</>
 					);

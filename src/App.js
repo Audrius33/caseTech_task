@@ -5,7 +5,7 @@ function App() {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/my-app" element={<Accordion />} />
+				<Route exact path="/" element={<Accordion />} />
 			</Routes>
 		</Router>
 	);
